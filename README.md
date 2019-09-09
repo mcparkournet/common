@@ -4,3 +4,15 @@
 # common
 
 Set of basic utilities.
+
+## Usage
+
+```java
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation("net.mcparkour:common-all:1.0.0")
+}
+```
