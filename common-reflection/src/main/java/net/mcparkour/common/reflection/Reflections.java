@@ -94,6 +94,7 @@ public final class Reflections {
 	@Nullable
 	public static Object getFieldValue(Field field, @Nullable Object instance) {
 		try {
+			field.trySetAccessible();
 			return field.get(instance);
 		} catch (IllegalAccessException exception) {
 			throw new UncheckedReflectiveOperationException(exception);
@@ -102,6 +103,7 @@ public final class Reflections {
 
 	public static void setFieldValue(Field field, @Nullable Object instance, @Nullable Object value) {
 		try {
+			field.trySetAccessible();
 			field.set(instance, value);
 		} catch (IllegalAccessException exception) {
 			throw new UncheckedReflectiveOperationException(exception);
@@ -120,6 +122,7 @@ public final class Reflections {
 
 	public static Object invokeMethod(Method method, @Nullable Object instance, Object... parameters) throws Throwable {
 		try {
+			method.trySetAccessible();
 			return method.invoke(instance, parameters);
 		} catch (IllegalAccessException exception) {
 			throw new UncheckedReflectiveOperationException(exception);
@@ -146,6 +149,7 @@ public final class Reflections {
 
 	public static <T> T newInstance(Constructor<T> constructor, Object... parameters) {
 		try {
+			constructor.trySetAccessible();
 			return constructor.newInstance(parameters);
 		} catch (InstantiationException | IllegalAccessException | InvocationTargetException exception) {
 			throw new UncheckedReflectiveOperationException(exception);
