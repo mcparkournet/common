@@ -24,41 +24,32 @@
 
 package net.mcparkour.common.math;
 
-public final class MathHelper {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-	private MathHelper() {
-		throw new UnsupportedOperationException("Cannot create an instance of this class");
+public class MathHelperTest {
+
+	@Test
+	public void testCircleArea() {
+		Assertions.assertEquals(Math.PI * 9, MathHelper.circleArea(3));
+		Assertions.assertEquals(Math.PI * 12.25, MathHelper.circleArea(3.5));
 	}
 
-	public static double circleArea(int radius) {
-		return Math.PI * square(radius);
+	@Test
+	public void testSphereVolume() {
+		Assertions.assertEquals(4.0 / 3.0 * Math.PI * 27, MathHelper.sphereVolume(3));
+		Assertions.assertEquals(4.0 / 3.0 * Math.PI * 42.875, MathHelper.sphereVolume(3.5));
 	}
 
-	public static double circleArea(double radius) {
-		return Math.PI * square(radius);
+	@Test
+	public void testSquare() {
+		Assertions.assertEquals(9, MathHelper.square(3));
+		Assertions.assertEquals(12.25, MathHelper.square(3.5));
 	}
 
-	public static double sphereVolume(int radius) {
-		return 4.0 / 3.0 * Math.PI * cube(radius);
-	}
-
-	public static double sphereVolume(double radius) {
-		return 4.0 / 3.0 * Math.PI * cube(radius);
-	}
-
-	public static int square(int number) {
-		return number * number;
-	}
-
-	public static double square(double number) {
-		return number * number;
-	}
-
-	public static int cube(int number) {
-		return number * number * number;
-	}
-
-	public static double cube(double number) {
-		return number * number * number;
+	@Test
+	public void testCube() {
+		Assertions.assertEquals(27, MathHelper.cube(3));
+		Assertions.assertEquals(42.875, MathHelper.cube(3.5));
 	}
 }
