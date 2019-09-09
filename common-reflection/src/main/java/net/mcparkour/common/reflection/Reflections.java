@@ -120,14 +120,14 @@ public final class Reflections {
 		}
 	}
 
-	public static Object invokeMethod(Method method, @Nullable Object instance, Object... parameters) throws Throwable {
+	public static Object invokeMethod(Method method, @Nullable Object instance, Object... parameters) {
 		try {
 			method.trySetAccessible();
 			return method.invoke(instance, parameters);
 		} catch (IllegalAccessException exception) {
 			throw new UncheckedReflectiveOperationException(exception);
 		} catch (InvocationTargetException exception) {
-			throw exception.getCause();
+			throw new UncheckedInvocationTargetException(exception);
 		}
 	}
 
