@@ -46,6 +46,10 @@ public class TestClass {
 		return string1 + string2;
 	}
 
+	private void exceptionMethod() {
+		throw new TestException();
+	}
+
 	private TestClass(String string1, String string2) {}
 
 	public TestClass(String string) {

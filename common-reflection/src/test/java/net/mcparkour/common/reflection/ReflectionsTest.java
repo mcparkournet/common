@@ -113,6 +113,13 @@ public class ReflectionsTest {
 		Method staticMethod = TestClass.class.getDeclaredMethod("staticStringMethod", String.class, String.class);
 		String staticResult = (String) Reflections.invokeMethod(staticMethod, null, "1", "2");
 		Assertions.assertEquals("12", staticResult);
+		Method exceptionMethod = TestClass.class.getDeclaredMethod("exceptionMethod");
+		Assertions.assertThrows(UncheckedInvocationTargetException.class, () -> Reflections.invokeMethod(exceptionMethod, testClass));
+		try {
+			Reflections.invokeMethod(exceptionMethod, testClass);
+		} catch (UncheckedInvocationTargetException exception) {
+			Assertions.assertSame(TestException.class, exception.getTargetException().getClass());
+		}
 		Assertions.assertThrows(UncheckedReflectiveOperationException.class, () -> Reflections.getMethod(TestClass.class, "notStringMethod"));
 	}
 
