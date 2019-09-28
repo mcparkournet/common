@@ -54,7 +54,7 @@ public final class Reflections {
 	public static List<Class<?>> getGenericTypes(Field field) {
 		Type type = field.getGenericType();
 		if (!(type instanceof ParameterizedType)) {
-			throw new IllegalArgumentException("Field generic type is not ParametrizedType");
+			return List.of();
 		}
 		ParameterizedType parameterizedType = (ParameterizedType) type;
 		Type[] typeArguments = parameterizedType.getActualTypeArguments();
