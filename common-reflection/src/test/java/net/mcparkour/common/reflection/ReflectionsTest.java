@@ -27,18 +27,11 @@ package net.mcparkour.common.reflection;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import sun.reflect.ReflectionFactory;
 
 public class ReflectionsTest {
-
-	@Test
-	public void testGetGenericTypes() throws NoSuchFieldException {
-		Field field = TestClass.class.getDeclaredField("genericsField");
-		Assertions.assertEquals(List.of(String.class, Integer.class), Reflections.getGenericTypes(field));
-	}
 
 	@Test
 	public void testIsStatic() throws NoSuchFieldException {

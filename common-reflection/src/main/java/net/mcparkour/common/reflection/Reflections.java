@@ -32,12 +32,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
-import java.lang.reflect.Type;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.jetbrains.annotations.Nullable;
 import sun.reflect.ReflectionFactory;
 
@@ -49,18 +44,6 @@ public final class Reflections {
 
 	private Reflections() {
 		throw new UnsupportedOperationException("Cannot create an instance of this class");
-	}
-
-	public static List<Class<?>> getGenericTypes(Field field) {
-		Type type = field.getGenericType();
-		if (!(type instanceof ParameterizedType)) {
-			return List.of();
-		}
-		ParameterizedType parameterizedType = (ParameterizedType) type;
-		Type[] typeArguments = parameterizedType.getActualTypeArguments();
-		return Arrays.stream(typeArguments)
-			.map(typeArgument -> (Class<?>) typeArgument)
-			.collect(Collectors.toUnmodifiableList());
 	}
 
 	public static boolean isStatic(Member member) {
