@@ -29,9 +29,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Member;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 import org.jetbrains.annotations.Nullable;
 import sun.reflect.ReflectionFactory;
@@ -44,11 +42,6 @@ public final class Reflections {
 
 	private Reflections() {
 		throw new UnsupportedOperationException("Cannot create an instance of this class");
-	}
-
-	public static boolean isStatic(Member member) {
-		int modifiers = member.getModifiers();
-		return Modifier.isStatic(modifiers);
 	}
 
 	public static <T extends AccessibleObject> T accessible(T accessible) {

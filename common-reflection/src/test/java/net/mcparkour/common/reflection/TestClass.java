@@ -37,6 +37,8 @@ public class TestClass {
 	private String stringField = "test";
 	private static String staticStringField = "static test";
 	private String string;
+	private final String finalField = null;
+	private transient String transientField;
 
 	private String stringMethod(String string1, String string2) {
 		return string1 + string2;

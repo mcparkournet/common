@@ -34,14 +34,6 @@ import sun.reflect.ReflectionFactory;
 public class ReflectionsTest {
 
 	@Test
-	public void testIsStatic() throws NoSuchFieldException {
-		Field staticField = TestClass.class.getDeclaredField("staticField");
-		Assertions.assertTrue(Reflections.isStatic(staticField));
-		Field notStaticField = TestClass.class.getDeclaredField("notStaticField");
-		Assertions.assertFalse(Reflections.isStatic(notStaticField));
-	}
-
-	@Test
 	public void testAccessible() throws NoSuchFieldException {
 		Field field = TestClass.class.getDeclaredField("stringField");
 		TestClass testClass = new TestClass();
