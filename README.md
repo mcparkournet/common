@@ -13,6 +13,6 @@ repositories {
 }
 
 dependencies {
-    implementation("net.mcparkour:common-all:1.0.1")
+    implementation("net.mcparkour:common-all:1.0.5")
 }
 ```
