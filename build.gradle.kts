@@ -19,8 +19,8 @@ subprojects {
 
 	dependencies {
 		compileOnly("org.jetbrains:annotations:19.0.0")
-		testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-		testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+		testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.1")
+		testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.1")
 		testCompileOnly("org.jetbrains:annotations:19.0.0")
 	}
 
