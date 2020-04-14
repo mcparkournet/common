@@ -33,6 +33,11 @@ public final class Types {
 		throw new UnsupportedOperationException("Cannot create an instance of this class");
 	}
 
+	public static Class<?> getRawClassType(Type type) {
+		Type rawType = getRawType(type);
+		return asClassType(rawType);
+	}
+
 	public static Type getRawType(Type type) {
 		if (isParametrizedType(type)) {
 			ParameterizedType parameterizedType = asParametrizedType(type);

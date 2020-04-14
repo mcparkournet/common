@@ -34,6 +34,14 @@ import org.junit.jupiter.api.Test;
 public class TypesTest {
 
 	@Test
+	public void testGetRawClassType() throws NoSuchFieldException {
+		Type stringType = getFieldType("stringField");
+		Assertions.assertSame(String.class, Types.getRawClassType(stringType));
+		Type mapType = getFieldType("genericsField");
+		Assertions.assertSame(Map.class, Types.getRawClassType(mapType));
+	}
+
+	@Test
 	public void testGetRawType() throws NoSuchFieldException {
 		Type stringType = getFieldType("stringField");
 		Assertions.assertEquals(String.class, Types.getRawType(stringType));
