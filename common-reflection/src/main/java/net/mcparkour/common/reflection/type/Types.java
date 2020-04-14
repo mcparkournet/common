@@ -43,7 +43,7 @@ public final class Types {
 
 	public static ParameterizedType asParametrizedType(Type type) {
 		if (!isParametrizedType(type)) {
-			throw new InvalidTypeTypeException(ParameterizedType.class);
+			throw new InvalidTypeTypeException(type, ParameterizedType.class);
 		}
 		return (ParameterizedType) type;
 	}
@@ -54,7 +54,7 @@ public final class Types {
 
 	public static Class<?> asClassType(Type type) {
 		if (!isClassType(type)) {
-			throw new InvalidTypeTypeException(Class.class);
+			throw new InvalidTypeTypeException(type, Class.class);
 		}
 		return (Class<?>) type;
 	}

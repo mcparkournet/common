@@ -7,12 +7,12 @@ Set of basic utilities.
 
 ## Usage
 
-```java
+```kotlin
 repositories {
     jcenter()
 }
 
 dependencies {
-    implementation("net.mcparkour:common-all:1.0.5")
+    implementation("net.mcparkour:common-all:1.0.6")
 }
 ```

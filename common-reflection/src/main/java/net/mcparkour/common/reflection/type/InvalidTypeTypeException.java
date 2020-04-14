@@ -30,7 +30,7 @@ public class InvalidTypeTypeException extends RuntimeException {
 
 	private static final long serialVersionUID = 5297080339989962210L;
 
-	public InvalidTypeTypeException(Class<? extends Type> typeType) {
-		super("Type is not " + typeType.getName());
+	public InvalidTypeTypeException(Type givenType, Class<? extends Type> typeType) {
+		super("The given " + givenType.getClass().getSimpleName() + " named " + givenType.getTypeName() + " is not " + typeType.getSimpleName());
 	}
 }
